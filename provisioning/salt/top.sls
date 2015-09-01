@@ -3,6 +3,6 @@ base:
     - common
     - ruby
     - node
-    - java
+    # - java
     - database
-    - elasticsearch
+    # - elasticsearch
