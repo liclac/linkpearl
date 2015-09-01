@@ -6,8 +6,10 @@ redis-server:
     - enable: true
 
 postgresql:
-  pkg:
-    - installed
+  pkg.installed:
+    - pkgs:
+      - postgresql
+      - libpq-dev
   service:
     - running
     - enable: true
