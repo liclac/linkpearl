@@ -38,7 +38,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     salt.pillar({
       'linkpearl' => {
         'username' => 'vagrant',
-        'db_username' => 'linkpearl',
+        'db_username' => 'vagrant',
         'db_password' => 'linkpearl',
       }
     })
