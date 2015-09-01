@@ -33,6 +33,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     salt.minion_id = 'vagrant'
     
     salt.run_highstate = true
+    salt.log_level = 'info'
     
     salt.pillar({
       'linkpearl' => {
