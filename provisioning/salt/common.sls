@@ -8,3 +8,4 @@ essentials:
       - htop
       - strace
       - ltrace
+      - zsh

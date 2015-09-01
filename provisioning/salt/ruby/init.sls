@@ -18,3 +18,7 @@ ruby-2.2.3:
     - source: salt://ruby/rbenv-profile.sh
     - require:
       - rbenv: rbenv
+
+/etc/zsh/zprofile:
+  file.append:
+    - text: . /etc/profile.d/rbenv.sh
