@@ -1,4 +1,9 @@
 # Junk
 /.vagrant
 /*.sublime-workspace
+/.bundle
 
+# Log/temp files
+/log/*
+!/log/.keep
+/tmp

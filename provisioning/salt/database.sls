@@ -13,6 +13,8 @@ postgresql:
   service:
     - running
     - enable: true
+    - require:
+      - pkg: postgresql
 
 db_user:
   postgres_user.present:
