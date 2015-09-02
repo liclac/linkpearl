@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: linkpearl
-  # username: linkpearl
-  # password: <%= ENV['LINKPEARL_DATABASE_PASSWORD'] %>
+  username: linkpearl
+  password: linkpearl
