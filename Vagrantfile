@@ -13,7 +13,8 @@ PILLAR = {
     'username' => 'linkpearl',
     'db_username' => 'linkpearl',
     'db_password' => 'linkpearl',
-  }
+  },
+  'gem_users' => [ 'vagrant', 'linkpearl' ],
 }
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|

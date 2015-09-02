@@ -13,6 +13,14 @@ ruby-2.2.3:
     - default: true
     - user: root
 
+{% for user in pillar['gem_users'] %}
+bundler-{{ user }}:
+  gem.installed:
+    - name: bundler
+    - user: "{{ user }}"
+    - ruby: 2.2.3
+{% endfor %}
+
 /etc/profile.d/rbenv.sh:
   file.managed:
     - source: salt://ruby/rbenv-profile.sh
