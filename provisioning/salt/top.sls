@@ -8,3 +8,10 @@ base:
     - postgres
     # - elasticsearch
     - linkpearl
+  'melusine':
+    - deployment
+    - staging
+  'vagrant':
+    - vagrant
+  'naul':
+    - deployment

@@ -1,0 +1,5 @@
+Host melusine
+  HostName 10.10.10.20
+  User {{ pillar['deployment']['username'] }}
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/melusine

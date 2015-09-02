@@ -1,2 +1,3 @@
 include:
   - .database
+  - .user
