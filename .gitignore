@@ -8,4 +8,4 @@
 /log/*
 !/log/.keep
 /tmp
-
+/public/assets
