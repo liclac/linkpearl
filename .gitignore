@@ -2,8 +2,10 @@
 /.vagrant
 /*.sublime-workspace
 /.bundle
+.DS_Store
 
 # Log/temp files
 /log/*
 !/log/.keep
 /tmp
+
