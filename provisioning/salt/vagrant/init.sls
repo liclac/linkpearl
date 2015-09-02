@@ -13,18 +13,18 @@
     - require:
       - file: /home/vagrant/.ssh
 
-/home/vagrant/.ssh/melusine:
+/home/vagrant/.ssh/id_rsa:
   file.managed:
-    - source: salt://staging/melusine
+    - source: salt://staging/id_rsa
     - mode: 600
     - user: vagrant
     - group: vagrant
     - require:
       - file: /home/vagrant/.ssh
 
-/home/vagrant/.ssh/melusine.pub:
+/home/vagrant/.ssh/id_rsa.pub:
   file.managed:
-    - source: salt://staging/melusine.pub
+    - source: salt://staging/id_rsa.pub
     - mode: 644
     - user: vagrant
     - group: vagrant

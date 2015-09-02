@@ -13,13 +13,12 @@ ruby-2.2.3:
     - default: true
     - user: root
 
-{% for user in pillar['gem_users'] %}
-bundler-{{ user }}:
-  gem.installed:
-    - name: bundler
-    - user: "{{ user }}"
-    - ruby: 2.2.3
-{% endfor %}
+bundler:
+  cmd.run:
+    - name: gem install bundler --no-document -i /usr/local/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/
+    - creates: /usr/local/rbenv/versions/2.2.3/bin/bundle
+    - require:
+      - rbenv: rbenv
 
 /etc/profile.d/rbenv.sh:
   file.managed:

@@ -7,14 +7,14 @@ VAGRANTFILE_API_VERSION = "2"
 PILLAR = {
   'deployment' => {
     'username' => 'deploy',
+    'run_as' => 'linkpearl',
+    'root' => '/var/www/linkpearl',
   },
   'linkpearl' => {
-    'root' => '/var/www/linkpearl',
-    'username' => 'linkpearl',
     'db_username' => 'linkpearl',
     'db_password' => 'linkpearl',
   },
-  'gem_users' => [ 'vagrant', 'linkpearl' ],
+  'gem_users' => [ 'vagrant', 'linkpearl', 'deploy' ],
 }
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|

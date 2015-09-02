@@ -6,4 +6,4 @@
 
 /home/{{ pillar['deployment']['username'] }}/.ssh/authorized_keys:
   file.append:
-    - source: salt://staging/melusine.pub
+    - source: salt://staging/id_rsa.pub
