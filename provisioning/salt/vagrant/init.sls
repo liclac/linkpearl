@@ -30,3 +30,16 @@
     - group: vagrant
     - require:
       - file: /home/vagrant/.ssh
+
+vagrant_db_user:
+  postgres_user.present:
+    - name: vagrant
+    - login: true
+    - superuser: true
+
+linkpearl_test_ownership:
+  postgres_database.present:
+    - name: linkpearl_test
+    - owner: vagrant
+    - require:
+      - sls: linkpearl.database
