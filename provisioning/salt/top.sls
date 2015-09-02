@@ -4,5 +4,7 @@ base:
     - ruby
     - node
     # - java
-    - database
+    - redis
+    - postgres
     # - elasticsearch
+    - linkpearl
