@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   character_id: 
+#   character_class_id: 
+#   level: 1
+#   exp_at: 1
+#   exp_of: 1
+
+# two:
+#   character_id: 
+#   character_class_id: 
+#   level: 1
+#   exp_at: 1
+#   exp_of: 1
