@@ -32,6 +32,7 @@ gem 'unicorn-rails'
 
 # Use Sidekiq for background processing
 gem 'sidekiq'
+gem 'sinatra', :require => nil
 
 # Use Faraday for HTTP stuff
 gem 'faraday'
