@@ -11,9 +11,13 @@ class SyncCharacterJob < ActiveJob::Base
     end
     conn.headers['User-Agent'] = USER_AGENT
     
-    res = conn.get "character/#{id}/"
     char = Character.find_or_initialize_by(id: id)
-    char.parse_html(res.body)
+    begin
+      res = conn.get "character/#{id}/"
+      char.parse_html(res.body)
+    rescue Faraday::ResourceNotFound
+      char.name = nil
+    end
     char.save!
   end
 end
