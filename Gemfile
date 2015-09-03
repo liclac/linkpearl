@@ -30,6 +30,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'unicorn'
 gem 'unicorn-rails'
 
+# Use Sidekiq for background processing
+gem 'sidekiq'
+
+# Use Faraday for HTTP stuff
+gem 'faraday'
+
 # Use Capistrano for deployment
 group :development do
   gem 'capistrano-rails'
