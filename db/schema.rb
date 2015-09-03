@@ -16,11 +16,10 @@ ActiveRecord::Schema.define(version: 20150902222846) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "characters", id: false, force: :cascade do |t|
-    t.integer  "id",         limit: 8
+  create_table "characters", id: :bigserial, force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
