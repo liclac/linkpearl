@@ -1,5 +1,5 @@
 class CharacterClassProgress < ActiveRecord::Base
-  belongs_to :character
+  belongs_to :character, touch: true
   belongs_to :character_class
   
   def self.for(class_name)
