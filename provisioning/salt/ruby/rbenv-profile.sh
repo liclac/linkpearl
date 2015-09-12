@@ -5,4 +5,4 @@ eval "$(rbenv init -)"
 
 # Allow user-specific gem installations
 export GEM_HOME="$HOME/.gem"
-export PATH="$GEM_PATH/bin:$PATH"
+export PATH="$GEM_HOME/bin:$PATH"

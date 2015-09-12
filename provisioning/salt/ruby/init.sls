@@ -15,7 +15,7 @@ ruby-2.2.3:
 
 bundler:
   cmd.run:
-    - name: gem install bundler --no-document -i /usr/local/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/
+    - name: /usr/local/rbenv/shims/gem install bundler --no-document -i /usr/local/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/
     - creates: /usr/local/rbenv/versions/2.2.3/bin/bundle
     - require:
       - rbenv: rbenv
