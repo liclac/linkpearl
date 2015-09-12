@@ -50,6 +50,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       
       salt.run_highstate = true
       salt.log_level = 'info'
+      salt.colorize = true
       
       salt.pillar PILLAR
     end
@@ -73,6 +74,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       
       salt.run_highstate = true
       salt.log_level = 'info'
+      salt.colorize = true
       
       salt.pillar PILLAR
     end
