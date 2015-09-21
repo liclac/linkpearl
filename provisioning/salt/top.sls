@@ -8,6 +8,7 @@ base:
     - redis
     - postgres
     # - elasticsearch
+    - mongodb
     - linkpearl
     - deployment
   'melusine':
