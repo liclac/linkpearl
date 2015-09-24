@@ -34,6 +34,7 @@ class Character
   field :sks, type: Integer
   field :sps, type: Integer
   
+  # Classes, levels and exp
   embeds_many :levels, class_name: "Character::Level" do
     def for(cls)
       lvl = @target.detect {|v| v.cls == cls}
@@ -46,9 +47,11 @@ class Character
     end
   end
   
+  # Indices
   index :name => 1
   index "levels.cls" => 1
   
+  # Update data from an HTML document
   def parse_doc(doc)
     # General information
     name_link = doc.at_css('.player_name_txt h2 a')
