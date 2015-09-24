@@ -18,6 +18,7 @@ class Character
   # General information
   field :name, type: String
   belongs_to :title
+  belongs_to :world
   
   # Primary attributes
   field :str, type: Integer
@@ -62,6 +63,10 @@ class Character
     # Title
     title_s = doc.at_css('.chara_title').try(:content).try(:strip)
     self.title = title_s ? Title.find_or_create_by(name: title_s) : nil
+    
+    # World
+    world_s = doc.at_css('.player_name_txt h2 span').content.gsub(/[\(\) ]/, '')
+    self.world = World.find_or_create_by(name: world_s)
     
     # Classes, levels and exp
     for cls_cell in doc.css('.class_list .ic_class_wh24_box') do
