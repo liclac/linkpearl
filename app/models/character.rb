@@ -1,12 +1,34 @@
 class Character
   class Level
     include Mongoid::Document
-    include Mongoid::Timestamps
     
     field :cls, type: String
     field :level, type: Integer
     field :exp, type: Integer
     field :need, type: Integer
+    
+    embedded_in :character
+  end
+  
+  class StatSet
+    include Mongoid::Document
+    include Mongoid::Timestamps::Updated
+    
+    # Primary attributes
+    field :str, type: Integer
+    field :dex, type: Integer
+    field :vit, type: Integer
+    field :int, type: Integer
+    field :mnd, type: Integer
+    field :pie, type: Integer
+    
+    # Secondary attributes
+    field :acc, type: Integer
+    field :crt, type: Integer
+    field :det, type: Integer
+    field :par, type: Integer
+    field :sks, type: Integer
+    field :sps, type: Integer
     
     embedded_in :character
   end
@@ -20,24 +42,11 @@ class Character
   belongs_to :title
   belongs_to :world
   
-  # Primary attributes
-  field :str, type: Integer
-  field :dex, type: Integer
-  field :vit, type: Integer
-  field :int, type: Integer
-  field :mnd, type: Integer
-  field :pie, type: Integer
-  
-  # Secondary attributes
-  field :acc, type: Integer
-  field :crt, type: Integer
-  field :det, type: Integer
-  field :par, type: Integer
-  field :sks, type: Integer
-  field :sps, type: Integer
+  # Current attributes, for change tracking
+  embeds_one :stats, class_name: "Character::StatSet", cascade_callbacks: true, autobuild: true
   
   # Classes, levels and exp
-  embeds_many :levels, class_name: "Character::Level" do
+  embeds_many :levels, class_name: "Character::Level", cascade_callbacks: true do
     def for(cls)
       lvl = @target.detect {|v| v.cls == cls}
       if not lvl
@@ -92,7 +101,7 @@ class Character
     stat_cells = doc.css('.param_list_attributes li span')
     [:str, :dex, :vit, :int, :mnd, :pie].each_with_index do |stat, i|
       cell = stat_cells[i]
-      self[stat] = cell.content.to_i
+      stats[stat] = cell.content.to_i
     end
     
     # Secondary stats
@@ -107,7 +116,7 @@ class Character
       
       value = cell.last_element_child.content.to_i
       sym = attrs[name]
-      self[sym] = value
+      stats[sym] = value
     end
   end
 end
