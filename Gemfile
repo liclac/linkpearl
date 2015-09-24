@@ -7,6 +7,9 @@ gem 'rails', '4.2.4'
 gem 'pg'
 # Use mongoid for volatile data (lodestone mirrors)
 gem 'mongoid', '~> 5.0'
+# Use grape for the API
+gem 'grape'
+gem 'grape-entity'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
