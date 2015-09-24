@@ -31,7 +31,7 @@ class Character
   end
   
   index :name => 1
-  index({ "levels.cls" => 1 }, { unique: true })
+  index "levels.cls" => 1
   
   def parse_doc(doc)
     name_link = doc.at_css('.player_name_txt h2 a')
