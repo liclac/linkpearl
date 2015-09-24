@@ -69,7 +69,7 @@ class Character
     self.world = World.find_or_create_by(name: world_s)
     
     # Classes, levels and exp
-    for cls_cell in doc.css('.class_list .ic_class_wh24_box') do
+    doc.css('.class_list .ic_class_wh24_box').each do |cls_cell|
       next if cls_cell.content.blank?
       
       level_cell = cls_cell.next_element
