@@ -17,6 +17,7 @@ class Character
   
   # General information
   field :name, type: String
+  belongs_to :title
   
   # Primary attributes
   field :str, type: Integer
@@ -57,6 +58,10 @@ class Character
     name_link = doc.at_css('.player_name_txt h2 a')
     self.id = name_link['href'].split('/').last.to_i
     self.name = name_link.content
+    
+    # Title
+    title_s = doc.at_css('.chara_title').try(:content).try(:strip)
+    self.title = title_s ? Title.find_or_create_by(name: title_s) : nil
     
     # Classes, levels and exp
     for cls_cell in doc.css('.class_list .ic_class_wh24_box') do
