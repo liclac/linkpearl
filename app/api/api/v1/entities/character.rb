@@ -104,7 +104,6 @@ module API
           required: true, desc: "Current attributes"
         }
         
-        # present_collection true, :levels
         expose :levels, using: API::V1::Entities::Character::Level, documentation: {
           required: true, desc: "Levels of all classes"
         }
