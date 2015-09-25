@@ -10,6 +10,7 @@ gem 'mongoid', '~> 5.0'
 # Use grape for the API
 gem 'grape'
 gem 'grape-entity'
+gem 'grape-kaminari'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
