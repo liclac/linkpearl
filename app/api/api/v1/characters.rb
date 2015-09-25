@@ -2,7 +2,6 @@ module API
   module V1
     class Characters < Grape::API
       include Grape::Kaminari
-      
       version 'v1'
       
       resource :characters do
