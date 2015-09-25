@@ -12,7 +12,8 @@ module API
         paginate per_page: 20, max_per_page: 30
         get do
           characters = Character.where(:name.ne => nil).order(:id => 1)
-          present paginate(characters), with: API::V1::Entities::Character
+          present :characters, paginate(characters), with: API::V1::Entities::Character
+          present :total, characters.count()
         end
         
         desc "Returns a specific character" do
@@ -26,7 +27,7 @@ module API
         end
         get ':id' do
           character = Character.where(:name.ne => nil).find(params[:id])
-          present character, with: API::V1::Entities::Character
+          present :character, character, with: API::V1::Entities::Character
         end
       end
     end
