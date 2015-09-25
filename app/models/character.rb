@@ -1,6 +1,7 @@
 class Character
   class Level
     include Mongoid::Document
+    include Mongoid::Timestamps::Updated
     
     field :cls, type: String
     field :level, type: Integer
@@ -61,6 +62,15 @@ class Character
   # Indices
   index :name => 1
   index "levels.cls" => 1
+  
+  # Accessors      
+  def title_s
+    title.try(:name)
+  end
+  
+  def world_s
+    world.name
+  end
   
   # Update data from an HTML document
   def parse_doc(doc)
