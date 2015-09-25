@@ -3,6 +3,9 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   root 'home#index'
   
+  # API root
+  mount API::Root => '/api'
+  
   # Sidekiq monitoring
   mount Sidekiq::Web => '/sidekiq'
   
