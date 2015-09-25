@@ -25,7 +25,8 @@ module API
           requires :id, type: Integer, desc: "Lodestone ID"
         end
         get ':id' do
-          present Character.find(params[:id]), with: API::V1::Entities::Character
+          character = Character.where(:name.ne => nil).find(params[:id])
+          present character, with: API::V1::Entities::Character
         end
       end
     end
