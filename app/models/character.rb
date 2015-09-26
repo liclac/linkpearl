@@ -76,13 +76,17 @@ class Character
   end
   
   # Update data from an HTML document
+  def self.letter_for_gender(gender)
+    { '♂' => 'M', '♀' => 'F' }[gender]
+  end
+  
   def parse_doc(doc)
     # General information
     name_link = doc.at_css('.player_name_txt h2 a')
     self.id = name_link['href'].split('/').last.to_i
     self.name = name_link.content
     self.race, self.clan, gender_symbol = doc.at_css('.chara_profile_title').content.split(' / ')
-    self.gender = { '♂' => 'M', '♀' => 'F' }[gender_symbol]
+    self.gender = Character.letter_for_gender gender_symbol
     
     # Title
     title_s = doc.at_css('.chara_title').try(:content).try(:strip)
