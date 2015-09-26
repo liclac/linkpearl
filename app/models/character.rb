@@ -71,6 +71,10 @@ class Character
   
   # Indices
   index :name => 1
+  index :title => 1
+  index :world => 1
+  index :grand_company => 1
+  index :free_company => 1
   index "levels.cls" => 1
   
   # Accessors      
