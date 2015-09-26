@@ -5,7 +5,7 @@ module API
       version 'v1'
       
       resource :characters do
-        desc "Return a list of characters" do
+        desc "List all characters" do
           success API::V1::Entities::Character
         end
         paginate per_page: 20, max_per_page: 30
@@ -15,7 +15,7 @@ module API
           present :total, characters.count()
         end
         
-        desc "Returns a specific character" do
+        desc "Show a specific character" do
           success API::V1::Entities::Character
           failure [
             [404, "The character does not exist", API::V1::Entities::Error],
