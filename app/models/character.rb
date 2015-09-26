@@ -46,6 +46,10 @@ class Character
   belongs_to :title
   belongs_to :world
   
+  # Grand Company
+  field :grand_company
+  field :grand_company_rank
+  
   # Current attributes, for change tracking
   embeds_one :stats, class_name: "Character::StatSet", cascade_callbacks: true, autobuild: true
   
@@ -80,6 +84,32 @@ class Character
     { '♂' => 'M', '♀' => 'F' }[gender]
   end
   
+  def self.letter_for_gc(name)
+    {
+      "Maelstrom" => 'M',
+      "Order of the Twin Adder" => 'A',
+      "Immortal Flames" => 'F'
+    }[name]
+  end
+  
+  def self.number_for_gc_rank(rank)
+    {
+      /Recruit/ => 0,
+      /[\w]+ Private Third Class/ => 1,
+      /[\w]+ Private Second Class/ => 2,
+      /[\w]+ Private First Class/ => 3,
+      /[\w]+ Corporal/ => 4,
+      /[\w]+ Sergeant Third Class/ => 5,
+      /[\w]+ Sergeant Second Class/ => 6,
+      /[\w]+ Sergeant First Class/ => 7,
+      /Chief [\w]+ Sergeant/ => 8,
+      /Second [\w]+ Lieutenant/ => 9,
+    }.each do |regex, nr|
+      return nr if regex.match rank
+    end
+    nil
+  end
+  
   def parse_doc(doc)
     # General information
     name_link = doc.at_css('.player_name_txt h2 a')
@@ -95,6 +125,19 @@ class Character
     # World
     world_s = doc.at_css('.player_name_txt h2 span').content.gsub(/[\(\) ]/, '')
     self.world = World.find_or_create_by(name: world_s)
+    
+    # Infoboxes
+    doc.css('.chara_profile_box_info').each do |box|
+      key = box.at_css('.txt').content
+      val = box.at_css('.txt_name')
+      
+      case key
+      when "Grand Company"
+        gc, rank = val.content.split('/')
+        self.grand_company = Character.letter_for_gc(gc)
+        self.grand_company_rank = Character.number_for_gc_rank(rank)
+      end
+    end
     
     # Classes, levels and exp
     doc.css('.class_list .ic_class_wh24_box').each do |cls_cell|
