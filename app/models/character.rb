@@ -40,6 +40,9 @@ class Character
   
   # General information
   field :name, type: String
+  field :race, type: String
+  field :clan, type: String
+  field :gender, type: String
   belongs_to :title
   belongs_to :world
   
@@ -78,6 +81,8 @@ class Character
     name_link = doc.at_css('.player_name_txt h2 a')
     self.id = name_link['href'].split('/').last.to_i
     self.name = name_link.content
+    self.race, self.clan, gender_symbol = doc.at_css('.chara_profile_title').content.split(' / ')
+    self.gender = { '♂' => 'M', '♀' => 'F' }[gender_symbol]
     
     # Title
     title_s = doc.at_css('.chara_title').try(:content).try(:strip)
