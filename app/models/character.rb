@@ -50,6 +50,9 @@ class Character
   field :grand_company
   field :grand_company_rank
   
+  # Free Company
+  belongs_to :free_company
+  
   # Current attributes, for change tracking
   embeds_one :stats, class_name: "Character::StatSet", cascade_callbacks: true, autobuild: true
   
@@ -136,6 +139,13 @@ class Character
         gc, rank = val.content.split('/')
         self.grand_company = Character.letter_for_gc(gc)
         self.grand_company_rank = Character.number_for_gc_rank(rank)
+      when "Free Company"
+        # Have to use a string here due to a Mongo/BSON gem bug:
+        # https://jira.mongodb.org/browse/RUBY-1039
+        fc_id = val.first_element_child[:href].split('/').last#.to_i
+        self.free_company = FreeCompany.find_or_initialize_by(id: fc_id)
+        self.free_company.name = val.content.strip
+        self.free_company.save!
       end
     end
     
