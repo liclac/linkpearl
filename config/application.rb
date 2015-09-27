@@ -29,8 +29,5 @@ module Linkpearl
     # Load ruby from app/api as well
     config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
     config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
-    
-    # Use ember-cli-rails' middleware
-    config.middleware.use EmberCLI::Middleware
   end
 end

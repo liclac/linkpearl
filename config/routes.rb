@@ -1,7 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  root 'frontend#index'
+  root 'home#index'
   
   # API root
   mount API::Root => '/api'
