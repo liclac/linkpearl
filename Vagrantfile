@@ -27,7 +27,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   config.vm.define "default", primary: true do |dev|
     # Forward some ports
-    dev.vm.network "forwarded_port", guest: 5000, host: 5000
+    dev.vm.network "forwarded_port", guest: 5000,  host: 5000   # Rails
+    dev.vm.network "forwarded_port", guest: 4200,  host: 4200   # Ember
+    dev.vm.network "forwarded_port", guest: 35729, host: 35729  # Ember (livereload)
     
     # Give it a private IP as well
     dev.vm.network "private_network", ip: "10.10.0.100"

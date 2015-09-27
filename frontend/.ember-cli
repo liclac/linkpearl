@@ -5,5 +5,16 @@
 
     Setting `disableAnalytics` to true will prevent any data from being sent.
   */
-  "disableAnalytics": false
+  "disableAnalytics": false,
+
+  /*
+   * Proxy AJAX calls to a Rails server running on 127.0.0.1:5000 in
+   * development. This matches what you get with `foreman start`.
+   */
+  "proxy": "http://127.0.0.1:5000",
+
+  /**
+   * Proper file watching doesn't work inside VMs.
+   */
+  "watcher": "polling"
 }
