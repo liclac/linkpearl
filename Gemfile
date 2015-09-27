@@ -7,10 +7,6 @@ gem 'rails', '4.2.4'
 gem 'pg'
 # Use mongoid for volatile data (lodestone mirrors)
 gem 'mongoid', '~> 5.0'
-# Use grape for the API
-gem 'grape'
-gem 'grape-entity'
-gem 'grape-kaminari'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -29,6 +25,12 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+
+# Use grape for the API
+gem 'grape'
+gem 'grape-entity'
+gem 'grape-kaminari'
+
 # Automatic API docs
 gem 'grape-swagger'
 gem 'grape-swagger-ui'
