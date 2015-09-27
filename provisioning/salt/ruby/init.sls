@@ -3,6 +3,7 @@ rbenv-deps:
     - pkgs:
       - libssl-dev
       - libsqlite3-dev
+      - libreadline-dev
 
 rbenv:
   rbenv.install_rbenv:
@@ -17,6 +18,12 @@ bundler:
   cmd.run:
     - name: /usr/local/rbenv/shims/gem install bundler --no-document -i /usr/local/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/
     - creates: /usr/local/rbenv/versions/2.2.3/bin/bundle
+    - require:
+      - rbenv: rbenv
+
+/usr/local/rbenv/shims:
+  file.directory:
+    - makedirs: true
     - require:
       - rbenv: rbenv
 

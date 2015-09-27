@@ -18,9 +18,8 @@ PILLAR = {
 }
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  # Build it off an Ubuntu 14.04 x64 box with Puppet preinstalled
-  # config.vm.box = "puppetlabs/ubuntu-14.04-64-puppet"
-  config.vm.box = "debian/jessie64"
+  # Build it off a standard Debian 8.1 box
+  config.vm.box = "box-cutter/debian81"
   
   # Prepare for Salt provisioning
   config.vm.synced_folder 'provisioning/salt', '/srv/salt'
@@ -31,7 +30,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     dev.vm.network "forwarded_port", guest: 5000, host: 5000
     
     # Give it a private IP as well
-    dev.vm.network "private_network", ip: "10.10.10.10"
+    dev.vm.network "private_network", ip: "10.10.0.100"
     
     # Set CPU count and RAM limits
     dev.vm.provider "virtualbox" do |v|

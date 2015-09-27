@@ -13,3 +13,13 @@ iojs:
   pkg.installed:
     - require:
       - pkgrepo: nodesource
+
+ember-cli:
+  npm.installed:
+    - require:
+      - pkg: iojs
+
+bower:
+  npm.installed:
+    - require:
+      - pkg: iojs
