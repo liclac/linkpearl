@@ -6,9 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('graph', function() {
-    this.route('world-population');
-  });
+  this.route('worlds');
 });
 
 export default Router;
