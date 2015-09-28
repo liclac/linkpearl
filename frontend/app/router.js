@@ -7,6 +7,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('worlds');
+  this.route('grand_companies');
 });
 
 export default Router;
