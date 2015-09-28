@@ -36,11 +36,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     
     # Set CPU count and RAM limits
     dev.vm.provider "virtualbox" do |v|
-      v.memory = 1024
+      v.memory = 2048
       v.cpus = 1
     end
     dev.vm.provider "vmware_fusion" do |v|
-      v.vmx["memsize"] = "1024"
+      v.vmx["memsize"] = "2048"
       v.vmx["numvcpus"] = "2"
     end
     
