@@ -6,7 +6,7 @@ class ImportCharactersJob < ActiveJob::Base
     batch_size = batch_size || (Character.where(:_id.gt => first_id).count >= 50 ? 150 : 500)
     
     last_id = first_id + batch_size
-    (first_id...last_id).each do |id|
+    last_id.downto(first_id).each do |id|
       SyncCharacterJob.perform_later(id)
     end
   end
