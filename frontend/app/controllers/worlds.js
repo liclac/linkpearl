@@ -2,15 +2,20 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   chartOptions: {
-    donut: true,
+    donut: false,
   },
   chartData: Ember.computed('model', 'totalPopulation', function() {
     let total = this.get('totalPopulation');
 
     let labels = [];
     let series = [];
-    for (var world of this.get('model').worlds) {
-      labels.push(world.population > total * 0.01 ? world.name : '');
+    let worlds = this.get('model').worlds.slice().sort(function(a, b) {
+      return b.population - a.population;
+    });
+    for (var world of worlds) {
+      let percent = (world.population / total) * 100;
+      let label = world.name + " " + percent.toFixed(2) + "%";
+      labels.push(world.population > total * 0.01 ? label : '');
       series.push(world.population);
     }
 
