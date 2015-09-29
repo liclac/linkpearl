@@ -1,34 +1,41 @@
-.light-label { .ct-label { fill: rgba(255,255,255,0.4); } }
+.slice-color(@color) {
+  .ct-slice { fill: @color; }
+  .ct-slice.ct-donut { stroke: @color; }
+}
 
-.ct-chart .ct-series .ct-label { fill: rgba(0,0,0,0.4); }
+.light-label() {
+  .ct-label { fill: rgba(255,255,255,0.75); }
+}
 
-.ct-chart .ct-series.ct-series-a { .ct-slice.ct-donut { stroke: #FF0000; } }
-.ct-chart .ct-series.ct-series-b { .ct-slice.ct-donut { stroke: #FF530D; } }
-.ct-chart .ct-series.ct-series-c { .ct-slice.ct-donut { stroke: #E82C0C; } }
-.ct-chart .ct-series.ct-series-d { .ct-slice.ct-donut { stroke: #E80C7A; } }
-.ct-chart .ct-series.ct-series-e { .ct-slice.ct-donut { stroke: #FF0DFF; } }
-.ct-chart .ct-series.ct-series-f { .ct-slice.ct-donut { stroke: #A901E8; } }
-.ct-chart .ct-series.ct-series-g { .ct-slice.ct-donut { stroke: #7401FF; } }
-.ct-chart .ct-series.ct-series-h { .ct-slice.ct-donut { stroke: #330BE8; } .light-label; }
-.ct-chart .ct-series.ct-series-i { .ct-slice.ct-donut { stroke: #0C22FF; } }
-.ct-chart .ct-series.ct-series-j { .ct-slice.ct-donut { stroke: #0153E8; } }
-.ct-chart .ct-series.ct-series-k { .ct-slice.ct-donut { stroke: #019EFF; } }
-.ct-chart .ct-series.ct-series-l { .ct-slice.ct-donut { stroke: #0BCEE8; } }
-.ct-chart .ct-series.ct-series-m { .ct-slice.ct-donut { stroke: #0CFFD9; } }
-.ct-chart .ct-series.ct-series-n { .ct-slice.ct-donut { stroke: #01E882; } }
-.ct-chart .ct-series.ct-series-o { .ct-slice.ct-donut { stroke: #01FF47; } }
-.ct-chart .ct-series.ct-series-p { .ct-slice.ct-donut { stroke: #0DE80B; } }
-.ct-chart .ct-series.ct-series-q { .ct-slice.ct-donut { stroke: #63FF0C; } }
-.ct-chart .ct-series.ct-series-r { .ct-slice.ct-donut { stroke: #A4E801; } }
-.ct-chart .ct-series.ct-series-s { .ct-slice.ct-donut { stroke: #FFFB01; } }
-.ct-chart .ct-series.ct-series-t { .ct-slice.ct-donut { stroke: #E8CE0B; } }
-.ct-chart .ct-series.ct-series-u { .ct-slice.ct-donut { stroke: #FFCA0C; } }
-.ct-chart .ct-series.ct-series-v { .ct-slice.ct-donut { stroke: #E89E01; } }
-.ct-chart .ct-series.ct-series-w { .ct-slice.ct-donut { stroke: #FF9401; } }
-.ct-chart .ct-series.ct-series-x { .ct-slice.ct-donut { stroke: #E86B0B; } }
-.ct-chart .ct-series.ct-series-y { .ct-slice.ct-donut { stroke: #FF520C; } }
-.ct-chart .ct-series.ct-series-z { .ct-slice.ct-donut { stroke: #E82201; } }
+.ct-chart .ct-series .ct-label { fill: rgba(0,0,0,0.75); }
 
-.ct-chart .ct-series.gc-M { .ct-slice.ct-donut { stroke: #FF3D42; } }
-.ct-chart .ct-series.gc-F { .ct-slice.ct-donut { stroke: #227DB2; } }
-.ct-chart .ct-series.gc-A { .ct-slice.ct-donut { stroke: #FFFC57; } }
+.ct-chart .ct-series.ct-series-a { .slice-color(#FF0000); }
+.ct-chart .ct-series.ct-series-b { .slice-color(#FF530D); }
+.ct-chart .ct-series.ct-series-c { .slice-color(#E82C0C); }
+.ct-chart .ct-series.ct-series-d { .slice-color(#E80C7A); }
+.ct-chart .ct-series.ct-series-e { .slice-color(#FF0DFF); .light-label; }
+.ct-chart .ct-series.ct-series-f { .slice-color(#A901E8); .light-label; }
+.ct-chart .ct-series.ct-series-g { .slice-color(#7401FF); .light-label; }
+.ct-chart .ct-series.ct-series-h { .slice-color(#330BE8); .light-label; }
+.ct-chart .ct-series.ct-series-i { .slice-color(#0C22FF); }
+.ct-chart .ct-series.ct-series-j { .slice-color(#0153E8); }
+.ct-chart .ct-series.ct-series-k { .slice-color(#019EFF); }
+.ct-chart .ct-series.ct-series-l { .slice-color(#0BCEE8); }
+.ct-chart .ct-series.ct-series-m { .slice-color(#0CFFD9); }
+.ct-chart .ct-series.ct-series-n { .slice-color(#01E882); }
+.ct-chart .ct-series.ct-series-o { .slice-color(#01FF47); }
+.ct-chart .ct-series.ct-series-p { .slice-color(#0DE80B); }
+.ct-chart .ct-series.ct-series-q { .slice-color(#63FF0C); }
+.ct-chart .ct-series.ct-series-r { .slice-color(#A4E801); }
+.ct-chart .ct-series.ct-series-s { .slice-color(#FFFB01); }
+.ct-chart .ct-series.ct-series-t { .slice-color(#E8CE0B); }
+.ct-chart .ct-series.ct-series-u { .slice-color(#FFCA0C); }
+.ct-chart .ct-series.ct-series-v { .slice-color(#E89E01); }
+.ct-chart .ct-series.ct-series-w { .slice-color(#FF9401); }
+.ct-chart .ct-series.ct-series-x { .slice-color(#E86B0B); }
+.ct-chart .ct-series.ct-series-y { .slice-color(#FF520C); }
+.ct-chart .ct-series.ct-series-z { .slice-color(#E82201); }
+
+.ct-chart .ct-series.gc-M { .slice-color(#FF3D42); }
+.ct-chart .ct-series.gc-F { .slice-color(#227DB2); }
+.ct-chart .ct-series.gc-A { .slice-color(#FFFC57); }
