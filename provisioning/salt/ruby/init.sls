@@ -1,4 +1,4 @@
-rbenv-deps:
+ruby-deps:
   pkg.installed:
     - pkgs:
       - libssl-dev
@@ -13,6 +13,8 @@ ruby-2.2.3:
   rbenv.installed:
     - default: true
     - user: root
+    - require:
+      - pkg: ruby-deps
 
 bundler:
   cmd.run:
