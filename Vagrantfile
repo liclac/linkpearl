@@ -18,8 +18,8 @@ PILLAR = {
 }
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  # Build it off a standard Debian 8.1 box
-  config.vm.box = "box-cutter/debian81"
+  # Build it off a standard Debian 8.2 box
+  config.vm.box = "box-cutter/debian82"
   
   # Prepare for Salt provisioning
   config.vm.synced_folder 'provisioning/salt', '/srv/salt'
