@@ -8,13 +8,15 @@
         <tr>
           <th>World</th>
           <th>Population</th>
+          <th>%</th>
         </tr>
       </thead>
       <tbody>
-        {{#each model.worlds as |world|}}
+        {{#each tableData as |world|}}
         <tr>
           <td>{{world.name}}</td>
           <td>{{world.population}}</td>
+          <td>{{world.percent}}%</td>
         </tr>
         {{/each}}
       </tbody>
