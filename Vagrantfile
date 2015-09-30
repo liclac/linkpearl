@@ -32,7 +32,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     dev.vm.network "forwarded_port", guest: 35729, host: 35729  # Ember (livereload)
     
     # Give it a private IP as well
-    dev.vm.network "private_network", ip: "10.10.0.100"
+    dev.vm.network "private_network", ip: "10.254.0.100"
     
     # Set CPU count and RAM limits
     dev.vm.provider "virtualbox" do |v|
@@ -58,7 +58,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
   
   config.vm.define "melusine", autostart: false do |melusine|
-    melusine.vm.network "private_network", ip: "10.10.10.20"
+    melusine.vm.network "private_network", ip: "10.254.0.101"
     
     melusine.vm.provider "virtualbox" do |v|
       v.memory = 512
